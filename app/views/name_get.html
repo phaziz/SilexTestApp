@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+    <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+    <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ TITLE }}</title>
+        <link rel="shortcut icon" href="http://phaziz.com/favicon.ico">
+        <link rel="icon" href="http://phaziz.com/favicon.ico">
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ app.request.basepath }}/assets/css/app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul>
+                        <li>
+                            <a href="http://silex.phaziz.com">silex.phaziz.com</a>
+                        </li>
+                        <li>
+                            <a href="http://silex.phaziz.com/hello">silex.phaziz.com/hello</a>
+                        </li>
+                        <li>
+                            <a href="http://silex.phaziz.com/hello/Christian">silex.phaziz.com/hello/Christian</a>
+                        </li>
+                    </ul>
+                    <p>                        
+                        {% if NAME|length > 0 %}
+                            Hello {{ NAME }}!
+                        {% else %}
+                            <form class="form-inline" role="form" id="form" method="get" action="" enctype="application/x-www-form-urlencoded">
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                </div>
+                                <button type="submit" class="btn btn-default">senden</button>
+                            </form>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script>
+            $(function()
+                {
+                    $('#form').bind('submit', function()
+                        {
+                            var NAME = $('#name').val();
+                            
+                            if(NAME == '')
+                            {
+                                $('#name').focus();
+                                alert('Bitte Name eingeben!');
+                                return false;
+                            }
+                        }
+                    );
+                }
+            );
+        </script>
+    </body>
+</html>

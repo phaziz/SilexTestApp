@@ -9,7 +9,12 @@ Using Silex PHP-Framework, Twig Template Engine, Doctrine DBAL, Monolog Logger a
 	
 	    $app = new Silex\Application();
 	
+	    // Please set to false in a production environment
+	    $app['debug'] = true;
+	
 	    require_once __DIR__.'/../app/routes/routes.php';
+	
+	
 	
 	    /*
 	     * REGISTERING DOCTRINE DBAL START
@@ -32,6 +37,8 @@ Using Silex PHP-Framework, Twig Template Engine, Doctrine DBAL, Monolog Logger a
 	     * REGISTERING DOCTRINE DBAL END
 	     * */
 	
+	
+	
 	    /*
 	     * REGISTERING MONOLOG LOGGER START
 	     * */
@@ -45,6 +52,8 @@ Using Silex PHP-Framework, Twig Template Engine, Doctrine DBAL, Monolog Logger a
 	    /*
 	     * REGISTERING MONOLOG LOGGER END
 	     * */
+	
+	
 	
 	    /*
 	     * REGISTERING SWIFTMAILER START
@@ -62,6 +71,8 @@ Using Silex PHP-Framework, Twig Template Engine, Doctrine DBAL, Monolog Logger a
 	    /*
 	     * REGISTERING SWIFTMAILER END
 	     * */
+	
+	
 	
 	    /*
 	     * REGISTERING TWIG TEMPLATE ENGINE START
@@ -82,9 +93,20 @@ Using Silex PHP-Framework, Twig Template Engine, Doctrine DBAL, Monolog Logger a
 	            )
 	        )
 	    );
-	
 	    /*
 	     * REGISTERING TWIG TEMPLATE ENGINE END
 	     * */
-	    
+	
+	
+	
+	    /*
+	     * 
+	     * RUNNING THE APP START
+	     * 
+	     * */
 	    $app -> run();
+	    /*
+	     * 
+	     * RUNNING THE APP END
+	     * 
+	     * */
